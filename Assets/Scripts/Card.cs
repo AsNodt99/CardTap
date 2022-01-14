@@ -33,14 +33,14 @@ public class Card : MonoBehaviour
             if (flip)
             {
                 open = true;
-                textMask[0].SetActive(true);
-                textMask[1].SetActive(true);
+                BoxHead.transform.gameObject.SetActive(true);
+                BoxDesc.transform.gameObject.SetActive(true);
                
             }
             else
             {
-                textMask[0].SetActive(false);
-                textMask[1].SetActive(false);
+               BoxHead.transform.gameObject.SetActive(false);
+                BoxDesc.transform.gameObject.SetActive(false);
             }
         }
     }
