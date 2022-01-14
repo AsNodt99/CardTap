@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 87d00d34caa40b843a7c25b47ddc8a3b
+  m_SerializeEntries:
+  - m_GUID: 398df9171022c3546a560096d8ba3109
+    m_Address: Assets/Recources/Troll_cannibal 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 156312, guid: 398df9171022c3546a560096d8ba3109, type: 3}
+    m_TargetAsset: {fileID: 156312, guid: 398df9171022c3546a560096d8ba3109, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e71dec7db879ac944a362d8bf12690b9, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 16aa4af3053e8c1499dc2aef8b93b2bd, type: 2}
+    - {fileID: 11400000, guid: 85fffa7ae8f4ddd48aeb9e3bbad831e9, type: 2}
