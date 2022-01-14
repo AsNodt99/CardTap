@@ -32,9 +32,10 @@ public class Card : MonoBehaviour
                 flip = !flip;
             if (flip)
             {
+                open = true;
                 textMask[0].SetActive(true);
                 textMask[1].SetActive(true);
-                open = true;
+               
             }
             else
             {
