@@ -9,7 +9,7 @@ public class Card : MonoBehaviour
     public Text BoxDesc;
     public Text timer;
     public float time=0;
-    bool lok = false;
+    public bool lok = false;
     public bool open=false;
     public int ID=1;    
     public bool flip = false;
@@ -28,18 +28,20 @@ public class Card : MonoBehaviour
     {
         if (lok == false)
         {
+            //flip status
             if (center)
                 flip = !flip;
+            //check flip condition and ui hide/show on flip
             if (flip)
             {
                 open = true;
                 BoxHead.transform.gameObject.SetActive(true);
                 BoxDesc.transform.gameObject.SetActive(true);
-               
+                
             }
             else
             {
-               BoxHead.transform.gameObject.SetActive(false);
+                BoxHead.transform.gameObject.SetActive(false);
                 BoxDesc.transform.gameObject.SetActive(false);
             }
         }
@@ -48,13 +50,17 @@ public class Card : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Timer load 
         time = PlayerPrefs.GetFloat("Timer");
+        //Canvas settings
         can.transform.localScale = new Vector3(0.025f, 0.025f, 0.025f);
         can.transform.localPosition = new Vector3(0.55f,-0.93f,-0.01f);
-       
+      // 3D Model load form address stored in struct
         Addressables.LoadAssetAsync<GameObject>(""+modelA).Completed += (onLoad) => {
             model = onLoad.Result;
-          model=  Instantiate(model, transform);
+            //instantiate loaded model into world
+            model = Instantiate(model, transform);
+            //randomize appearing of model for better mask effect
            float x= Random.Range(-2,2);
             float y = Random.Range(-1, 1);
             model.transform.localPosition = new Vector3(model.transform.localPosition.x+x, model.transform.localPosition.y+y, model.transform.localPosition.z);
@@ -64,7 +70,7 @@ public class Card : MonoBehaviour
                 mask[i].maskOb[1] = model.transform.GetChild(1).gameObject;
             }*/
         };
-
+        //loading UI text form struct
         BoxHead.text = head;
         BoxDesc.text = description;
 
@@ -74,17 +80,18 @@ public class Card : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ID == 1)
+        //Timer for first only card while closed
+        if (ID == 1)//first card
         {
-            if (flip==false)
-            {
+            if (flip==false)//when closed
+            {          
                
-                int i = (int)time;
-                timer.text = i.ToString();
-                PlayerPrefs.SetFloat("Timer", time);
-                lok = true;
+                lok = true; // lock card flip for time 
                 time += Time.deltaTime;
-                if (time > 5)
+                int i = (int)time;
+                timer.text = i.ToString();//converting float to string rounded and show on UI
+                PlayerPrefs.SetFloat("Timer", time);// save corrent timer
+                if (time > 5) //timer=5 seconds then closing timer
                 {
                     timer.text = null;
                     flip = true;
